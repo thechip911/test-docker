@@ -2,8 +2,14 @@
 FROM python:3.10.5
 
 # set work directory
+# set environment variables
+ENV PYTHONDONTWRITEBYTECODE 1    # Prevents Python from writing pyc files to disc
+ENV PYTHONUNBUFFERED 1           # Prevents Python from buffering stdout and stderr
+
 WORKDIR /app
 COPY . .
+
+
 RUN apt update
 RUN apt install netcat -y
 
