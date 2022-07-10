@@ -4,6 +4,10 @@ services:
   app:
     stdin_open: true
     tty: true
+    depends_on:
+      - db
+    networks:
+      - default
 
   db:
     container_name: testdb
@@ -16,7 +20,9 @@ services:
       - ./.env
     restart: always
     ports:
-      - 5433:543
+      - 5433:5432
+    networks:
+      - default
 
 volumes:
   postgres_data:

@@ -1,5 +1,5 @@
 # pull official base image
-FROM python:3.10.5
+FROM python:latest
 
 # set work directory
 # set environment variables
@@ -13,6 +13,6 @@ COPY . .
 RUN apt update
 RUN apt install netcat -y
 
-RUN pip install psycopg2 django
+RUN pip install psycopg2 django gunicorn
 
 

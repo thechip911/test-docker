@@ -1,2 +1,3 @@
-docker-compose.override.yml
 venv
+.idea
+.DS_Store

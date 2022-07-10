@@ -8,7 +8,18 @@ services:
     restart: always
     volumes:
       - .:/app
-    ports:
-      - "8000:8000"
-    depends_on:
-      - db
+    networks:
+      - default
+
+  nginx:
+      image: nginx:latest
+      container_name: ngx
+      ports:
+        - "80:80"
+      volumes:
+        - ./nginx:/etc/nginx/conf.d
+      depends_on:
+        - app
+networks:
+  default:
+      name: payme_india_network
